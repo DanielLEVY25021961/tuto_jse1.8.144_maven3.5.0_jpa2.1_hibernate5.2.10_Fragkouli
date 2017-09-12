@@ -1,0 +1,4 @@
+https://examples.javacodegeeks.com/enterprise-java/hibernate/hibernate-jpa-dao-example/
+
+https://sayemdb.wordpress.com/2014/08/15/jpa-tutorial-setting-up-jpa-in-a-java-se-environment/
+

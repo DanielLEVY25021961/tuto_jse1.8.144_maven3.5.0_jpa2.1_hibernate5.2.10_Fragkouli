@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="tuto_jse1.8.144_maven3.5.0_jpa2.1_hibernate5.2.10_Fragkouli">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <property name="context-root" value="tuto_jse1.8.144_maven3.5.0_jpa2.1_hibernate5.2.10_Fragkouli"/>
+        <property name="java-output-path" value="/tuto_jse1.8.144_maven3.5.0_jpa2.1_hibernate5.2.10_Fragkouli/target/classes"/>
+    </wb-module>
+</project-modules>
