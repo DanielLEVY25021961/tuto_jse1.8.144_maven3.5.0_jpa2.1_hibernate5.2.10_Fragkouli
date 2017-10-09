@@ -107,7 +107,7 @@ public abstract class AbstractDaoGeneric<T, ID extends Serializable>
 	/**
 	 * method buildEntityManager() :<br/>
 	 * <ul>
-	 * <li>Récupère la session Hibernate auprès de HibernateUtilNG.</li>
+	 * <li>Récupère la session Hibernate auprès de HibernateUtil.</li>
 	 * <li>Récupère la Factory auprès de la Session.</li>
 	 * <li>Récupère l'EntityManager auprès de la Factory.</li>
 	 * </ul>
@@ -118,8 +118,8 @@ public abstract class AbstractDaoGeneric<T, ID extends Serializable>
 	private void buildEntityManager() 
 			throws HibernateException, IllegalStateException {
 		
-		/* Récupère la session Hibernate auprès de HibernateUtilNG. */
-		this.session = HibernateUtilNG.currentSession();
+		/* Récupère la session Hibernate auprès de HibernateUtil. */
+		this.session = HibernateUtil.currentSession();
 		
 		/* Récupère la Factory auprès de la Session. */
 		this.entityManagerFactory 
