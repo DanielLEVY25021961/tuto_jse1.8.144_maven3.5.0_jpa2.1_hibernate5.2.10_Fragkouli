@@ -137,7 +137,6 @@ public final class GestionnaireRG {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(GestionnaireRG.class);
 	
 	

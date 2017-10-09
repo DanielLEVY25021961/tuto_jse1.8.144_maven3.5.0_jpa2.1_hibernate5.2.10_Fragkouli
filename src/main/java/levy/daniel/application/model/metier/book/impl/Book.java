@@ -95,7 +95,6 @@ public class Book
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(Book.class);
 
 	// *************************METHODES************************************/

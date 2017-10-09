@@ -47,7 +47,6 @@ public class Livre extends AbstractLivre {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(Livre.class);
 	
 

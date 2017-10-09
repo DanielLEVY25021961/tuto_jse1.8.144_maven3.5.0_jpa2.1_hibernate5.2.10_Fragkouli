@@ -43,7 +43,6 @@ public class ClientService extends AbstractClientService {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(ClientService.class);
 
 	// *************************METHODES************************************/

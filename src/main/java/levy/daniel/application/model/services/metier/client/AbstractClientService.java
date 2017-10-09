@@ -47,7 +47,6 @@ public abstract class AbstractClientService
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG 
 		= LogFactory.getLog(AbstractClientService.class);
 	

@@ -66,7 +66,6 @@ public class ClientACommandes extends AbstractClient {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG 
 		= LogFactory.getLog(ClientACommandes.class);
 

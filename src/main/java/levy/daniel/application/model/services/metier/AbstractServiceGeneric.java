@@ -175,7 +175,6 @@ public abstract class AbstractServiceGeneric<T> implements IServiceGeneric<T> {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG 
 		= LogFactory.getLog(AbstractServiceGeneric.class);
 

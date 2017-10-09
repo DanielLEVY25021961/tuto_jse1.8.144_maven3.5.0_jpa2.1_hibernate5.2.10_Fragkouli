@@ -65,7 +65,6 @@ public class AbstractClient
 	 * id : Long :<br/>
 	 * ID en base.<br/>
 	 */
-	@Column(name = "IDCLIENT")
 	protected Long id;
 
 	
@@ -109,7 +108,6 @@ public class AbstractClient
 	/**
 	 * LOG : Log : Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(AbstractClient.class);
 
 	// *************************METHODES************************************/

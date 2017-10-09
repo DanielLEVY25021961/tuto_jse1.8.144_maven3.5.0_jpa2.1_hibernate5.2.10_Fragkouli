@@ -78,7 +78,6 @@ public final class GestionnaireRGClient {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG 
 		= LogFactory.getLog(GestionnaireRGClient.class);
 	

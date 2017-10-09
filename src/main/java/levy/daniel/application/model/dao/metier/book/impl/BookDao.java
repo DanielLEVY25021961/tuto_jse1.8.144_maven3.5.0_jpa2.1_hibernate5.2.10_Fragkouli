@@ -35,7 +35,6 @@ public class BookDao extends AbstractDaoBook {
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(BookDao.class);
 
 	// *************************METHODES************************************/

@@ -81,7 +81,6 @@ public abstract class AbstractDaoGeneric<T, ID extends Serializable>
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	@SuppressWarnings("unused")
 	private static final Log LOG = LogFactory.getLog(AbstractDaoGeneric.class);
 
 
