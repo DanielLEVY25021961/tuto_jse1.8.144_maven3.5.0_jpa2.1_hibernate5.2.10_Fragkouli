@@ -454,7 +454,7 @@ public class AbstractLivre
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "ID")
 	@Override
 	public Long getId() {
 		return this.id;
@@ -476,7 +476,7 @@ public class AbstractLivre
 	/**
 	 * {@inheritDoc}
 	 */
-	@Column(name = "titre")
+	@Column(name = "TITRE")
 	@Override
 	public String getTitre() {
 		return this.titre;
@@ -498,7 +498,7 @@ public class AbstractLivre
 	/**
 	 * {@inheritDoc}
 	 */
-	@Column(name = "auteur")
+	@Column(name = "AUTEUR")
 	@Override
 	public String getAuteur() {
 		return this.auteur;

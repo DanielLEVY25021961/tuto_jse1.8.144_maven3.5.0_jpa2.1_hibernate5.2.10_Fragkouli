@@ -31,7 +31,7 @@ import org.apache.commons.logging.LogFactory;
  * @since 20 août 2017
  */
 @Entity
-@Table(name = "ABSTRACT_CLIENTS")
+@Table(name = "ABSTRACT_CLIENTS", schema="public")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class AbstractClient
 		implements Serializable, Comparable<AbstractClient>, Cloneable

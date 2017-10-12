@@ -39,7 +39,7 @@ import levy.daniel.application.model.metier.client.AbstractClient;
  * @since 20 août 2017
  */
 @Entity
-@Table(name = "ABSTRACT_COMMANDES")
+@Table(name = "ABSTRACT_COMMANDES", schema="public")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class AbstractCommande
 		implements Serializable, Comparable<AbstractCommande>, Cloneable

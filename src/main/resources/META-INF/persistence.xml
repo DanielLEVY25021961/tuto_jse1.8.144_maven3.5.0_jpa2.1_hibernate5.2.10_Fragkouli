@@ -198,6 +198,10 @@
 					<!-- ***************** -->
 					<!-- Pool de Connexion -->
 					<!-- ***************** -->
+			<!-- NE PAS PRECISER DE POOL DE CONNEXION ICI SI ON 					-->
+			<!-- DEPLOIE L'APPLI SOUS UN TOMCAT. 									-->
+			<!-- TOMCAT SE CHARGERA DU POOL DE CONNEXION 							-->
+			<!-- A PRECISER SI APPLI STANDALONE. 									-->
 			<property name="hibernate.c3p0.min_size" value="5" />
 		    <property name="hibernate.c3p0.max_size" value="20" />
 		    <property name="hibernate.c3p0.timeout" value="500" />
