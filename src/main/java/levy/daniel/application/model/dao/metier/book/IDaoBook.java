@@ -1,5 +1,6 @@
 package levy.daniel.application.model.dao.metier.book;
 
+import levy.daniel.application.model.dao.daoexceptions.AbstractDaoException;
 import levy.daniel.application.model.metier.book.impl.Book;
 
 /**
@@ -31,16 +32,19 @@ public interface IDaoBook {
 	 * Book pBook) :<br/>
 	 * <ul>
 	 * <li>Recherche un Book pBook en base 
-	 * <via son identifiant métier.</li>
+	 * via son identifiant métier.</li>
 	 * <li>Retourne le Book trouvé en base.</li>
 	 * </ul> 
 	 * <br/>
 	 *
-	 * @param pBook : Book : Book à rechercher en base.<br/>
+	 * @param pBook : Book : Book à rechercher en base 
+	 * via son identifiant métier.<br/>
 	 * 
 	 * @return : Book : Le Book trouvé en base.<br/>
+	 * 
+	 * @throws AbstractDaoException 
 	 */
-	Book retrieveByIdMetier(Book pBook);
+	Book retrieveByIdMetier(Book pBook) throws AbstractDaoException;
 	
 
 	
