@@ -29,7 +29,7 @@ public interface IDaoClient {
 	 * AbstractClient pClient) :<br/>
 	 * <ul>
 	 * <li>Recherche un AbstractClient pClient en base 
-	 * <via son identifiant métier.</li>
+	 * via son identifiant métier.</li>
 	 * <li>Retourne l'AbstractClient trouvé en base.</li>
 	 * </ul> 
 	 * <br/>

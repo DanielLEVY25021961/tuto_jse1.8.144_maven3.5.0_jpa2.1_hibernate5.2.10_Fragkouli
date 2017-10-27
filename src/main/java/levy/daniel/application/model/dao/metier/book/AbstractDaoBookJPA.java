@@ -103,6 +103,11 @@ public abstract class AbstractDaoBookJPA
 	public final Book retrieve(
 			final Book pBook) throws AbstractDaoException {
 		
+		/* return null si pBook == null. */
+		if (pBook == null) {
+			return null;
+		}
+		
 		Book bookResultat = null;
 		
 		/* REQUETE HQL PARMETREE. */
@@ -164,6 +169,11 @@ public abstract class AbstractDaoBookJPA
 	@Override
 	public final void deleteById(
 			final Long pId) throws AbstractDaoException {
+		
+		/* ne fait rien si pId == null. */
+		if (pId == null) {
+			return;
+		}
 
 		Book bookPersistant = null;
 
@@ -246,6 +256,11 @@ public abstract class AbstractDaoBookJPA
 	public final boolean deleteByIdBoolean(
 			final Long pId) throws AbstractDaoException {
 
+		/* retourne false si pId == null. */
+		if (pId == null) {
+			return false;
+		}
+		
 		boolean resultat = false;
 		
 		Book bookPersistant = null;
@@ -337,6 +352,11 @@ public abstract class AbstractDaoBookJPA
 	@Override
 	public boolean exists(
 			final Book pBook) throws AbstractDaoException {
+		
+		/* retourne false si pBook == null. */
+		if (pBook == null) {
+			return false;
+		}
 
 		boolean resultat = false;
 		Book bookResultat = null;
