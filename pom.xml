@@ -1,9 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	        
+         <!-- ================================================== -->
+         <!-- 			POM pour MAVEN 3.5.0					 -->
+         <!-- 			Java 1.8.0_144							 -->
+         <!-- ================================================== -->
+         
 
 	<!-- Version du POM. -->
 	<modelVersion>4.0.0</modelVersion>
+	
 	
 	<!-- ========================================================== -->
 	<!-- GAV (identifiant du projet)                                -->
@@ -43,19 +51,69 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	<url>https://examples.javacodegeeks.com/enterprise-java/hibernate/hibernate-jpa-dao-example/</url>
 	
 
-
-	<!-- ================================================ -->
+    <!-- ================================================ -->
 	<!--                    PROPERTIEs                    -->
 	<!-- Préciser ici les propriétés générales du projet. -->
 	<!-- ================================================ -->
 	<properties>
+	
 		<!-- Force l'encoding des sources du projet en UTF-8 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Vérifie la conformité des classes Java (.java) avec le JDK 1.8 -->
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<!-- Vérifie la conformité des classes Java (.class) avec le JDK 1.8 -->
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<!-- Encodage pourle Reporting (site web) -->
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+
+		
+		<!-- ========================================================== -->
+		<!-- 		VERSIONS DES COMPOSANTS DANS LES DEPENDANCES		-->
+		<!-- ========================================================== -->
+		<!-- 				Version de SPRING 							-->
+		<spring.version>5.0.1.RELEASE</spring.version>
+		<!-- 				Version d'HIBERNATE 						-->
+		<hibernate.version>5.2.11.Final</hibernate.version>
+		<!-- 			Version d'HIBERNATE VALIDATOR				    -->
+		<hibernate.validator>6.0.2.Final</hibernate.validator>
+		<!-- 			Version du POOL DE CONNEXION c3p0	 			-->
+		<c3p0.version>0.9.5.2</c3p0.version>
+		<!-- 					Version de JSTL						 	-->
+		<jstl.version>1.2</jstl.version>
+		<!-- 			Version des Taglibs JSTL 						-->
+		<taglibs-standard-impl.version>1.2.5</taglibs-standard-impl.version>
+		<!-- 				Version de Servlet 							-->
+		<servlets.version>3.1.0</servlets.version>
+		<!--				Version de JSP							    -->
+		<jsp.version>2.2.1-b03</jsp.version>
+		<!-- 				Version de HSQLDB						    -->
+		<hsqldb.version>2.4.0</hsqldb.version>
+		
 	</properties>
+
+
+
+	<!-- =========================================================== -->
+	<!--            DEPENDANCY MANAGEMENT POUR SPRING                -->
+	<!-- Gestion des dépendances SPRING utilisées par le projet      -->
+	<!-- Eviter des conflits de versions entre dépendances SPRING    -->
+	<!-- =========================================================== -->  
+	<dependencyManagement>
+	    <dependencies>
+	        <!-- https://mvnrepository.com/artifact/org.springframework/spring-framework-bom -->
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-framework-bom</artifactId>
+			    <version>${spring.version}</version>
+			    <type>pom</type>
+			    <!-- Indispensable de préciser scope = import -->
+			    <scope>import</scope>
+			</dependency>
+	    </dependencies>
+	</dependencyManagement>
+
 
 	<!-- =============================================== -->
 	<!--                DEPENDANCEs                      -->
@@ -75,10 +133,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.5</version>
-			<scope>compile</scope>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.6</version>
+		    <scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
@@ -88,22 +146,59 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<scope>compile</scope>
 		</dependency>
 
+
 		<!-- ================================ -->
 		<!-- dépendances pour log4J -->
 		<!-- ================================ -->
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<!-- ATTENTION : Log4j1.2 est un projet abandonné -->
+		<!-- https://resourcepool.io/fr/2015/04/06/java-university-logging-in-java/ -->
+		<!-- https://resourcepool.io/fr/2016/03/22/java-university-logging-in-java-2/ -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 			<scope>compile</scope>
 		</dependency>
+
+		
+		<!-- =============================================== -->
+		<!-- dépendances pour Log4j2 utilisé par Hibernate 5 -->
+		<!-- =============================================== -->		
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.8.2</version>
-			<scope>compile</scope>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>2.9.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-api</artifactId>
+		    <version>2.9.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-slf4j-impl</artifactId>
+		    <version>2.9.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jcl -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-jcl</artifactId>
+		    <version>2.9.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jul -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-jul</artifactId>
+		    <version>2.9.0</version>
+		    <scope>runtime</scope>
 		</dependency>
 
 
@@ -150,16 +245,39 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 <!-- 		</dependency> -->
 
 
+		<!-- ========================================================== -->
+		<!--    DEPENDANCES POUR la VALIDATION DES FORMULAIRES WEB  	-->
+		<!-- ========================================================== -->
+		<!-- JPA : validation-api -->	
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>2.0.0.Final</version>
+		    <scope>compile</scope>
+		</dependency>
+				
+		<!-- Hibernate-Validator -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>${hibernate.validator}</version>
+		    <scope>test</scope>
+		</dependency>
+
+				
 		<!-- ====================================================== -->
 		<!--        DEPENDANCES POUR ORM (Hibernate)  				-->
 		<!-- ====================================================== -->	
 		<!-- ESSENTIEL -->	
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<!-- Remplace hibernate-entitymanager, persistence-api, ... -->
+		<!-- 				HIBERNATE-CORE 							-->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
-		    <version>5.2.10.Final</version>
+		    <version>${hibernate.version}</version>
 		    <scope>compile</scope>
 		</dependency>
 		
@@ -172,60 +290,100 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <scope>compile</scope>
 		</dependency>
 		
-		<!-- POOL DE CONNEXION c3p0 -->
+		<!-- Intégration du POOL DE CONNEXION c3p0 pour Hibernate 			 -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-c3p0</artifactId>
-		    <version>5.2.10.Final</version>
+		    <version>${hibernate.version}</version>
+		    <scope>compile</scope>
+		</dependency>
+
+
+		<!-- ====================================================== -->
+		<!--        DEPENDANCES POUR Pool de connexion  			-->
+		<!-- ====================================================== -->
+		<!-- c3p0 -->
+		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 	-->
+		<dependency>
+		    <groupId>com.mchange</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>${c3p0.version}</version>
 		    <scope>compile</scope>
 		</dependency>
 		
-		
+
 		<!-- ====================================================== -->
 		<!--        DEPENDANCES POUR Bases de Données  				-->
 		<!-- ====================================================== -->
-		<!-- HSQLDB -->		
-		<!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
+		<!-- POSTGRESQL -->
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
-		    <groupId>org.hsqldb</groupId>
-		    <artifactId>hsqldb</artifactId>
-		    <version>2.4.0</version>
-		    <scope>compile</scope>		    
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.1.4</version>
+		    <scope>compile</scope>
 		</dependency>
 		<!-- MySQL -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.7-dmr</version>
+		    <version>8.0.8-dmr</version>
 		    <scope>compile</scope>
 		</dependency>
-		<!-- POSTGRESQL -->
-		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+		<!-- HSQLDB -->		
+		<!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
 		<dependency>
-		    <groupId>postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		    <version>9.1-901-1.jdbc4</version>
-		    <scope>compile</scope>
+		    <groupId>org.hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		    <version>${hsqldb.version}</version>
+		    <scope>test</scope>		    
 		</dependency>
-				
+
 	</dependencies>
 	
 	
-				<!-- ================================== -->
-				<!--       REPOSITORIES				    -->
-				<!-- ================================== -->	
+	
+				<!-- ======================================  -->
+				<!--   REPOSITORIES	POUR LES DEPENDANCES  	 -->
+				<!-- ======================================  -->	
 			<!-- Précise la localisation des dépôts Maven -->
 	<repositories>
+	
+		<!-- Dépôt Central MAVEN pour les dépendances -->
 		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
 			<id>central</id>
 			<name>Central Repository</name>
 			<url>https://repo.maven.apache.org/maven2</url>
+			<!-- Ici les RELEASES, pas les milestones ou les snapshots. -->
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>			
 		</repository>
+		
+		<!-- http://www.baeldung.com/spring-maven-repository -->
+		<!-- dépôt Maven pour SPRING au cas où le dépôt central est indisponible. -->
+		<repository> 
+        <id>repository.spring.release</id> 
+        	<name>Spring GA Repository</name> 
+        	<url>http://repo.spring.io/release</url>
+        	<!-- Ici les RELEASES, pas les milestones ou les snapshots. -->
+        	<snapshots>
+				<enabled>false</enabled>
+			</snapshots>			         
+    	</repository>
+    	
+    	<!-- dépôt Maven pour SPRING au cas où le dépôt central est indisponible. -->
+    	<repository>
+	        <id>io.spring.repo.maven.release</id>
+	        <url>http://repo.spring.io/release/</url>
+	        <!-- Ici les RELEASES, pas les milestones ou les snapshots. -->
+	        <snapshots>
+	        	<enabled>false</enabled>
+	        </snapshots>
+	    </repository>
+    	    	
 	</repositories>
 	
   
@@ -233,20 +391,22 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				<!--       PLUGIN REPOSITORIES			-->
 				<!-- ================================== -->	
   			
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>Central Repository</name>
-      <url>https://repo.maven.apache.org/maven2</url>
-    </pluginRepository>
-  </pluginRepositories>
+	  <pluginRepositories>
+	    <pluginRepository>
+	      <releases>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>central</id>
+	      <name>Central Repository</name>
+	      <url>https://repo.maven.apache.org/maven2</url>
+	    </pluginRepository>
+	  </pluginRepositories>
   
+  
+ 
 
   				<!-- ================================== -->
 				<!--       			BUILD				-->
@@ -262,35 +422,40 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					<!-- CHEMINS ET REPERTOIRES -->
 					<!-- ====================== -->
 
-	<!-- CREER A LA MAIN SI MANQUANT -->
-	<!-- Répertoire des src Java. -->
-	<sourceDirectory>src/main/java</sourceDirectory>
-	<!-- Répertoire des scripts (scripts SQL ou Batch) -->
-	<scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
-	<!-- Répertoire des Tests src Java. -->
-	<testSourceDirectory>src/test/java</testSourceDirectory>
-	<!-- Répetoire des classes compilées -->
-	<outputDirectory>target/classes</outputDirectory>
-	<!-- Répetoire des classes compilées de test -->
-	<testOutputDirectory>target/test-classes</testOutputDirectory>
-	<resources>
-		<resource>
-			<directory>src/main/resources</directory>
-		</resource>
-	</resources>
-	<testResources>
-		<testResource>
-			<directory>src/test/resources</directory>
-		</testResource>
-	</testResources>
 
-	<!-- REPERTOIRE DES BUILDS -->
-	<directory>target</directory>
+		<!-- CREER A LA MAIN SI MANQUANT -->
+		
+		<!-- REPERTOIRE DES BUILDS (target)-->
+		<directory>${project.basedir}/target</directory>
+		<!-- Répetoire des classes compilées -->
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
 
-					<!-- =================== -->
-					<!-- NOM DU ROOT CONTEXT -->
-					<!-- =================== -->
-	<finalName>tuto_jse1.8.144_maven3.5.0_jpa2.1_hibernate5.2.10_Fragkouli</finalName>
+		<!-- REPERTOIRE DES SOURCES (target)-->
+		<!-- Répertoire des src Java. -->
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+		<!-- Répertoire des scripts (scripts SQL ou Batch) -->
+		<scriptSourceDirectory>${project.basedir}/src/main/scripts</scriptSourceDirectory>
+		<!-- Répertoire des Tests src Java. -->
+		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+		
+		<!-- Répetoire des classes compilées de test -->
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+
+		
+		<!-- ============================================== -->
+		<!-- NOM DU LIVRABLE CREE PAR MAVEN (jar, war, ...) -->
+		<!-- ============================================== -->
+		<finalName>${project.artifactId}-${project.version}</finalName>
 
 
   				<!-- ================================== -->
@@ -306,7 +471,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			    <artifactId>maven-antrun-plugin</artifactId>
 			    <version>1.8</version>
 			</plugin>
-			
+
 			<!-- Utilisé en fin de build des war, jar, ... -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
 			<plugin>
@@ -314,7 +479,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				    <artifactId>maven-assembly-plugin</artifactId>
 				    <version>3.1.0</version>
 			</plugin>
-			
+
 			<!-- IMPORTANT - Gère les dépendances -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
 			<plugin>
@@ -322,7 +487,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				    <artifactId>maven-dependency-plugin</artifactId>
 				    <version>3.0.1</version>
 			</plugin>
-			
+
 			<!-- Gestion des versions de livrables (artefacts) -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-release-plugin -->
 			<plugin>
@@ -371,28 +536,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					</execution>
 				</executions>
 			</plugin>
-			
-			<!-- Build des War -->
+
+			<!-- Build des Jar -->
 			<!-- ATTENTION en fonction de la balise packaging - METTRE PLUGIN JAR SI APPLI DESKTOP -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
-<!-- 				<plugin> -->
-<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
-<!--     				<artifactId>maven-war-plugin</artifactId> -->
-<!--     				<version>3.1.0</version> -->
-<!-- 					<executions> -->
-<!-- 						<execution> -->
-<!-- 							<id>default-war</id> -->
-<!-- 							<phase>package</phase> -->
-<!-- 							<goals> -->
-<!-- 								<goal>war</goal> -->
-<!-- 							</goals> -->
-<!-- 						</execution> -->
-<!-- 					</executions> -->
-<!-- 				</plugin> -->
-			
-			<!-- Build des Jar -->
-			<!-- ATTENTION en fonction de la balise packaging - METTRE PLUGIN WAR SI APPLI WEB -->
-			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -412,6 +559,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					</execution>
 				</executions>
 			</plugin>
+			
+			
 			
 			<!-- Compilation des sources en classes. -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
@@ -457,7 +606,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					<target>1.8</target>
 				</configuration>					
 			</plugin>
-			
+
 			<!-- Tests unitaires -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
 			<plugin>
@@ -491,7 +640,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<!-- Déploiement sur le serveur applicatif. -->
 			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
 			<plugin>
@@ -508,60 +657,46 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					</execution>
 				</executions>
 			</plugin>
-			
-			<!-- Génération par Maven de son site Web. -->
-			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-   				<artifactId>maven-site-plugin</artifactId>
-   				<version>3.6</version>
-				<executions>
-					<execution>
-						<id>default-site</id>
-						<phase>site</phase>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>C:\target\site</outputDirectory>
-							<reportPlugins>
-								<reportPlugin>
-									<groupId>org.apache.maven.plugins</groupId>
-									<artifactId>maven-project-info-reports-plugin</artifactId>
-								</reportPlugin>
-							</reportPlugins>
-						</configuration>
-					</execution>
-					<execution>
-						<id>default-deploy</id>
-						<phase>site-deploy</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>C:\target\site</outputDirectory>
-							<reportPlugins>
-								<reportPlugin>
-									<groupId>org.apache.maven.plugins</groupId>
-									<artifactId>maven-project-info-reports-plugin</artifactId>
-								</reportPlugin>
-							</reportPlugins>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<outputDirectory>C:\target\site</outputDirectory>
-					<reportPlugins>
-						<reportPlugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-project-info-reports-plugin</artifactId>
-						</reportPlugin>
-					</reportPlugins>
-				</configuration>
-			</plugin>
 
 		</plugins>
 
 	</build>
+
+
+	<!-- ========= -->
+	<!-- REPORTING -->
+	<!-- ========= -->	
+	<reporting>
+		<outputDirectory>${project.build.directory}/site</outputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>dependencies</report>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+				<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->
+	                <additionalparam>-Xdoclint:none</additionalparam>
+	            </configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
 	
 </project>
