@@ -669,10 +669,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	<reporting>
 		<outputDirectory>${project.build.directory}/site</outputDirectory>
 		<plugins>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.9</version>
+				<version>${maven-project-info-reports-plugin.version}</version>
 				<configuration>
 					<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
 					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
@@ -686,10 +687,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 					</reportSet>
 				</reportSets>
 			</plugin>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.0-M1</version>
+				<version>${maven-javadoc-plugin.version}</version>
 				<configuration>
 				<!-- Permet d'éviter les erreurs de création de Javadoc avec les <br/> -->
 	                <additionalparam>-Xdoclint:none</additionalparam>
