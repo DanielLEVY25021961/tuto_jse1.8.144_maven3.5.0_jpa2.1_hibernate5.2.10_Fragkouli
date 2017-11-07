@@ -177,7 +177,7 @@ public abstract class AbstractDaoBookJPA
 
 		Book bookPersistant = null;
 
-		/* REQUETE HQL PARMETREE. */
+		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 		= SELECT_BOOK 
 		+ "where book.id = :pId";
@@ -379,6 +379,7 @@ public abstract class AbstractDaoBookJPA
 			/* Execution de la requete HQL. */
 			bookResultat = (Book) requete.getSingleResult();
 			
+			/* retourne true si l'objet existe en base. */
 			if (bookResultat != null) {
 				resultat = true;
 			}
@@ -450,6 +451,8 @@ public abstract class AbstractDaoBookJPA
 				
 		return stb.toString();
 		
-	}
+	} // Fin de afficherListe(...).________________________________________
+	
+	
 	
 } // FIN DE LA CLASSE AbstractDaoBook.---------------------------------------
