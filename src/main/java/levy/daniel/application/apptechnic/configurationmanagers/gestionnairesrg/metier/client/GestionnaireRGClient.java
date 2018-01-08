@@ -9,7 +9,11 @@ import levy.daniel.application.apptechnic.configurationmanagers.gestionnairesrg.
 
 /**
  * class GestionnaireRGClient :<br/>
- * .<br/>
+ * <ul>
+ * <li>Classe Utilitaire chargée de gérer les <b>RG</b> 
+ * se rapportant à un <b>Client</b>.</li>
+ * <li>délégué du <b>GestionnaireRG</b>.</li>
+ * </ul>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -129,6 +133,9 @@ public final class GestionnaireRGClient {
 	 * <li>validerRGClientNom01</li>
 	 * <li>validerRGClientNom02</li>
 	 * </ul>
+	 * Trim la valeur lue dans le properties.<br/>
+	 * <br/>
+	 * 
 	 * @throws MalformedURLException 
 	 */
 	private static void lireControleNomActif() 
